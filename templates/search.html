@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Search results</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	{% block head %}
+	<link rel="stylesheet" type="text/css" href={{ url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css') }}>
+	<link rel="stylesheet" type="text/css" href={{ url_for('static',filename='fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}>
+	<link rel="stylesheet" type="text/css" href={{ url_for('static',filename='vendor/animate/animate.css') }}>
+	<link rel="stylesheet" type="text/css" href={{ url_for('static',filename='vendor/select2/select2.min.css') }}>
+	<link rel="stylesheet" type="text/css" href={{ url_for('static',filename='vendor/perfect-scrollbar/perfect-scrollbar.css') }}>
+	<link rel="stylesheet" type="text/css" href={{ url_for('static',filename='css/util.css') }}>
+	<link rel="stylesheet" type="text/css" href={{ url_for('static',filename='css/search.css') }}>
+	{% endblock %}
+</head>
+<body>
+
+		<div class="container-table100">
+			<div class="wrap-table100">
+				<div class="table100 ver1 m-b-110">
+					<div class="table100-head">
+						<table>
+							<thead>
+								<tr class="row100 head">
+									<th class="cell100 column1">Message</th>
+									<th class="cell100 column2">Score</th>
+									<th class="cell100 column3">Views</th>
+									<th class="cell100 column4">Likes</th>
+									<th class="cell100 column5">Date</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+
+					<div class="table100-body">
+						<table>
+							<tbody>
+
+							{% for item in items %}
+								<tr class="row100 body">
+									<td class="cell100 column1">{{ item[0] }}</td>
+									<td class="cell100 column2">{{ item[1] }}</td>
+									<td class="cell100 column3">{{ item[2] }}</td>
+									<td class="cell100 column4">{{ item[3] }}</td>
+									<td class="cell100 column5">{{ item[4] }}</td>
+								</tr>
+							{% endfor %}
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		{% block javascript %}
+		<script src={{ url_for('static',filename='vendor/jquery/jquery-3.2.1.min.js') }}></script>
+		<script src={{ url_for('static',filename='vendor/bootstrap/js/popper.js') }}></script>
+		<script src={{ url_for('static',filename='vendor/bootstrap/js/bootstrap.min.js') }}></script>
+		<script src={{ url_for('static',filename='vendor/select2/select2.min.js') }}></script>
+		<script src={{ url_for('static',filename='js/search.js') }}></script>
+		{% endblock %}
+</body>
+</html>
